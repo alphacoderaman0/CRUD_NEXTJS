@@ -1,8 +1,8 @@
-export default function employee() {
-  return (
-    <div className=" px-96 flex  justify-center items-center h-[100vh]">
+export default function edit(){
+    return(
+        <div className=" px-96 flex  justify-center items-center h-[100vh]">
       <div className="w-full bg-white px-6 py-6 border rounded-xl shadow-lg hover:shadow-xl">
-          <h1 className="text-3xl text-center font-bold uppercase">Add new Employee Details</h1>
+          <h1 className="text-3xl text-center font-bold uppercase">Edit Employee Details</h1>
           <form action="/" className="my-2 space-y-5 ">
 
             <div>
@@ -24,12 +24,12 @@ export default function employee() {
 
             <button
               type="submit"
-              className="py-3 px-5 text-xl font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 uppercase"
+              className="py-3 px-5 text-xl font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
             >
-              Add
+              Edit
             </button>
           </form>
       </div>
     </div>
-  );
+    )
 }
