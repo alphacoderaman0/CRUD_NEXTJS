@@ -1,3 +1,7 @@
+# FULLSTACK CRUD USING NEXTJS
+## <a href="https://crud.netlify.app"> Tap to Visit</a>
+<img width="1158" alt="image" src="https://github.com/user-attachments/assets/d79d953f-d883-456e-a794-2b044e865ae5">
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
