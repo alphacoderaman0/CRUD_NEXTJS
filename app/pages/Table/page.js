@@ -1,13 +1,21 @@
 "use client"
 import { useEffect,useState } from "react";
 import Link from "next/link";
-export default function Table(props){
+export default function Table(){
+  const handleDelete = async (userId)=>{
+    const reqOption={
+      method:"DELETE",
+    }
+    const response  = await fetch("http://localhost:3000/api/users/"+userId,reqOption);
+    window.location.reload();
+  }
+
     const[data,setData] = useState(false);
     const [users,setUsers]= useState([]);
     console.log("users:",users);
     useEffect(()=>{
       async function fetchUser(){
-        const allData = await fetch("http://localhost:3000/api/users") ;
+        const allData = await fetch("http://localhost:3000/api/users");
         setUsers(await allData.json());
       }
       fetchUser();
@@ -33,7 +41,7 @@ export default function Table(props){
               <td key={user.id}>{user.mobno}</td>
               <td className="py-4 flex gap-3 justify-center propss-center">
                 <Link href="/pages/edit_employee" className=" px-4 py-2 rounded-xl bg-blue-500 text-white font-semibold uppercase hover:bg-blue-700 hover:shadow-xl">edit</Link>
-                <button className=" px-4 py-2 rounded-xl bg-red-500 text-white font-semibold uppercase hover:bg-red-700 hover:shadow-xl">delete</button>
+                <button id="refreshBtn" onClick={()=>{handleDelete(user.id)}} className=" px-4 py-2 rounded-xl bg-red-500 text-white font-semibold uppercase hover:bg-red-700 hover:shadow-xl">delete</button>
               </td>
             </tr>            
             ))

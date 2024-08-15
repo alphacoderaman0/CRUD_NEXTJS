@@ -1,7 +1,9 @@
 "use client"
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 export default function employee() {
+  const router = useRouter();
   const [saveUser,setSaveUser] = useState({
     name: "",
     email: "",
@@ -22,18 +24,8 @@ export default function employee() {
     }
     const response = await fetch("http://localhost:3000/api/users",reqOption);
     const newUser = await response.json();
-    // console.log(newUser,"Aman");
-    // if(newUser){
-    //   document.getElementsByClassName("addCancel")[0],click();
-    //   var prevUsers = value.users;
-    //   prevUsers.push(newUser);
-    //   value.setMyUser(prevUsers);
-    // }
-    // if(newUser){
-    //   return push('/')
-    // }
+    router.push('/');
   }
-
   return (
     <div className=" px-96 flex  justify-center items-center h-[100vh]">
       <div className="w-full bg-white px-6 py-6 border rounded-xl shadow-lg hover:shadow-xl">
@@ -46,15 +38,15 @@ export default function employee() {
             </div>
             <div>
               <label htmlFor="age"className="block mb-2 text-lg font-medium text-gray-900 ">Age</label>
-              <input onChange={handleSaveChanges} value={saveUser.age} name="age" type="number" id="age" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Age" required=""/>
+              <input maxLength="3" onChange={handleSaveChanges} value={saveUser.age} name="age" type="number" id="age" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Age" required=""/>
             </div>
             <div>
               <label htmlFor="email"className="block mb-2 text-lg font-medium text-gray-900 ">E-mail</label>
-              <input onChange={handleSaveChanges} value={saveUser.email} name="email" type="text" id="email" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Email" required=""/>
+              <input onChange={handleSaveChanges} value={saveUser.email} name="email" type="email" id="email" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Email" required=""/>
             </div>
             <div>
               <label htmlFor="mobno"className="block mb-2 text-lg font-medium text-gray-900 ">Phone Number</label>
-              <input onChange={handleSaveChanges} value={saveUser.mobno} name="mobno" type="text" id="mobno" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Phone Number (only 10 digits)" required=""/>
+              <input onChange={handleSaveChanges} value={saveUser.mobno} name="mobno" type="number" id="mobno" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Phone Number (only 10 digits)" required=""/>
             </div>
                     {/* buttons */}
             <div className="flex justify-between">
