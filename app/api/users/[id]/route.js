@@ -15,15 +15,15 @@ export async function GET(request,{params}){
 
 export async function PUT(request,{params}){
     const data = await request.json();
-    const {name,age,email,mobno} = data
+    const {name,age,email,mobno} = data;
     const id = parseInt(params.id);
     const updateUser = await prisma.user.update({
-        where:{id},
+        where:{id:id},
         data :{
-            name,
-            age,
-            email,
-            mobno
+            name:name,
+            age:age,
+            email:email,
+            mobno:mobno
         },
     })
     return NextResponse.json(updateUser);
