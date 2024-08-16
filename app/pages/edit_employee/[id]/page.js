@@ -1,22 +1,37 @@
 "use client"
 import Link from "next/link"
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 export default function edit({params}){
 
+=======
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+export default function edit({params}){
+
+    const navigaion = useRouter();
+>>>>>>> 7459687a407d43b2c1ead0253bfaeaccb176294d
     const id = parseInt(params.id);
     const [user , setUser] = useState([]);
     const [name , setName] = useState('');
     const [age , setAge] = useState('');
     const [email , setEmail] = useState('');
     const [mobno , setMobno] = useState('');
+<<<<<<< HEAD
     // update user starts
+=======
+>>>>>>> 7459687a407d43b2c1ead0253bfaeaccb176294d
     const handleUpdateSubmit = async ()=>{
       const res =await fetch(`http://localhost:3000/api/users/${id}`,{
         method:'PUT',
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify({name,age,email,mobno})
       });
+<<<<<<< HEAD
       window.location.assign('/');
+=======
+      navigaion.push('/');
+>>>>>>> 7459687a407d43b2c1ead0253bfaeaccb176294d
   }
     useEffect(()=>{
         async function fetchUser(params){
@@ -25,14 +40,21 @@ export default function edit({params}){
         }
         fetchUser(id);
     },[])
+<<<<<<< HEAD
     // update user ends
+=======
+>>>>>>> 7459687a407d43b2c1ead0253bfaeaccb176294d
     return(
         <div className=" px-96 flex  justify-center items-center h-[100vh]">
       <div className="w-full bg-white px-6 py-6 border rounded-xl shadow-lg hover:shadow-xl">
           <h1 className="text-3xl text-center font-bold uppercase">Update Employee Details</h1>
+<<<<<<< HEAD
           {/* form starts */}
           <form onSubmit={handleUpdateSubmit} className="my-2 space-y-5 ">
             {/* input starts */}
+=======
+          <form onSubmit={handleUpdateSubmit} className="my-2 space-y-5 ">
+>>>>>>> 7459687a407d43b2c1ead0253bfaeaccb176294d
             <div>
               <label htmlFor="name"className="block mb-2 text-lg font-medium text-gray-900 ">Name</label>
               <input  onChange={(e)=>setName(e.target.value)} type="text" id="name" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Name" required=""/>
@@ -49,8 +71,12 @@ export default function edit({params}){
               <label htmlFor="mobno"className="block mb-2 text-lg font-medium text-gray-900 ">Phone Number</label>
               <input  onChange={(e)=>setMobno(e.target.value)} type="number" id="mobno" className="block p-3 w-full text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 " placeholder="Enter your Phone Number (only 10 digits)" required=""/>
             </div>
+<<<<<<< HEAD
             {/* input ends */}
             {/* buttons starts */}
+=======
+            {/* buttons */}
+>>>>>>> 7459687a407d43b2c1ead0253bfaeaccb176294d
             <div className="flex justify-between">
               <Link
               href="/"
@@ -64,9 +90,13 @@ export default function edit({params}){
               className="py-3 px-5 text-md font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 uppercase"
             />
             </div>
+<<<<<<< HEAD
             {/* button ends */}
           </form>
           {/* form ends */}
+=======
+          </form>
+>>>>>>> 7459687a407d43b2c1ead0253bfaeaccb176294d
       </div>
     </div>
     )
