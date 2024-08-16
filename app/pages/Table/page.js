@@ -40,7 +40,7 @@ export default function Table(){
               <td key={user.id}>{user.email}</td>
               <td key={user.id}>{user.mobno}</td>
               <td className="py-4 flex gap-3 justify-center propss-center">
-                <Link href="/pages/edit_employee" className=" px-4 py-2 rounded-xl bg-blue-500 text-white font-semibold uppercase hover:bg-blue-700 hover:shadow-xl">edit</Link>
+                <Link href={`/pages/edit_employee/${user.id}`} className=" px-4 py-2 rounded-xl bg-blue-500 text-white font-semibold uppercase hover:bg-blue-700 hover:shadow-xl">edit</Link>
                 <button id="refreshBtn" onClick={()=>{handleDelete(user.id)}} className=" px-4 py-2 rounded-xl bg-red-500 text-white font-semibold uppercase hover:bg-red-700 hover:shadow-xl">delete</button>
               </td>
             </tr>            
